@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DADM_2122_parejaA_P3">
         <activity
+            android:name=".MenuResultados"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityJuego"
+            android:exported="false" />
+        <activity
             android:name=".MenuPrincipal"
             android:exported="true">
             <intent-filter>

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DADM_2122_parejaA_P3">
         <activity
-            android:name=".MainActivity"
+            android:name=".MenuPrincipal"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

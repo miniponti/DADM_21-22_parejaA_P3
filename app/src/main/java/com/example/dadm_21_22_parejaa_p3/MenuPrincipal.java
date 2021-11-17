@@ -24,10 +24,10 @@ public class MenuPrincipal extends AppCompatActivity {
         // CANCION MENU
         mp_bgm = MediaPlayer.create(getApplicationContext(), R.raw.bgm_menus);
         mp_bgm.start();
+        mp_bgm.setLooping(true);
 
         // EFECTO SONIDO BOTON
         mp_btn = MediaPlayer.create(getApplicationContext(), R.raw.sfx_botones);
-        mp_btn.start();
 
         // BOTON EMPEZAR
         Button btn_empezar = findViewById(R.id.btn_empezar);

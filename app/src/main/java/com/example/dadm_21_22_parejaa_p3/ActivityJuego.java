@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -16,6 +17,7 @@ public class ActivityJuego extends AppCompatActivity {
 
     FragmentContainerView fragmentContainerView;
     ImageButton botonPausa;
+    MediaPlayer mp_btn; // efecto al hacer click
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,17 @@ public class ActivityJuego extends AppCompatActivity {
         FM.beginTransaction().replace(R.id.fragmentContainerView, new MenuPausaFragment(), "FRAGMENT_PAUSA");
         fragmentContainerView.setVisibility(View.GONE);
 
+        // EFECTO SONIDO BOTON
+        mp_btn = MediaPlayer.create(getApplicationContext(), R.raw.sfx_botones);
+
         // boton pausa
         botonPausa = (ImageButton) findViewById(R.id.btn_pausa);
         botonPausa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                // suena el efecto de sonido
+                mp_btn.start();
+
+                // se hace visible / invisible
                 if (fragmentContainerView.getVisibility() == View.GONE){
                     fragmentContainerView.setVisibility(View.VISIBLE);
                 }

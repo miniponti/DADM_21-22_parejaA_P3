@@ -21,15 +21,15 @@
         app:srcCompat="@android:drawable/ic_media_pause"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <fragment
-        android:id="@+id/menuPausa_frag"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.dadm_21_22_parejaa_p3.MenuPausaFragment"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_menu_pausa">
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </fragment>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

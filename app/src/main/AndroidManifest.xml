@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DADM_2122_parejaA_P3">
         <activity
-            android:name=".MenuResultados"
+            android:name=".activities.MenuResultados"
             android:exported="false" />
         <activity
-            android:name=".ActivityJuego"
+            android:name=".activities.ActivityJuego"
             android:exported="false" />
         <activity
-            android:name=".MenuPrincipal"
+            android:name=".activities.MenuPrincipal"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

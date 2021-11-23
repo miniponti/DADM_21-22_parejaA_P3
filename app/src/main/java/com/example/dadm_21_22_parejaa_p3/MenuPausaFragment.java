@@ -5,13 +5,13 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentContainerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.Button;
+
+import com.example.dadm_21_22_parejaa_p3.activities.MenuPrincipal;
 
 public class MenuPausaFragment extends Fragment {
 
@@ -35,7 +35,7 @@ public class MenuPausaFragment extends Fragment {
                 mp_btn.start();
 
                 // se cambia de actividad
-                Intent intent = new Intent(getActivity(),MenuPrincipal.class);
+                Intent intent = new Intent(getActivity(), MenuPrincipal.class);
                 startActivity(intent);
             }
         });

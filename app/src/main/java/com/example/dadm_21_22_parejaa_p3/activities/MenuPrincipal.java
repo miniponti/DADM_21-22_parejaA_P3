@@ -1,4 +1,4 @@
-package com.example.dadm_21_22_parejaa_p3;
+package com.example.dadm_21_22_parejaa_p3.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+
+import com.example.dadm_21_22_parejaa_p3.R;
 
 public class MenuPrincipal extends AppCompatActivity {
 

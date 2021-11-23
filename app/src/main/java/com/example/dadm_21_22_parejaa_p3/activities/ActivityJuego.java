@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 
@@ -14,6 +15,7 @@ import com.example.dadm_21_22_parejaa_p3.MenuPausaFragment;
 import com.example.dadm_21_22_parejaa_p3.R;
 import com.example.dadm_21_22_parejaa_p3.engine.GameEngine;
 import com.example.dadm_21_22_parejaa_p3.input.InputController;
+import com.example.dadm_21_22_parejaa_p3.movimiento.Player;
 
 public class ActivityJuego extends AppCompatActivity {
 
@@ -22,6 +24,7 @@ public class ActivityJuego extends AppCompatActivity {
     private MediaPlayer mp_btn; // efecto al hacer click
 
     private GameEngine gameEngine;
+    private View activityView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +34,19 @@ public class ActivityJuego extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_juego);
 
-        gameEngine = new GameEngine(this);
-        gameEngine.setInputController(new InputController());
+        // encontrar view para poder coger las medidas para el jugador
+        activityView = (View) findViewById(android.R.id.content).getRootView();
+        final ViewTreeObserver observer = activityView.getViewTreeObserver();
+        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+            @Override
+            public void onGlobalLayout(){
+                // Para evitar que sea llamado múltiples veces,
+                // se elimina el listener en cuanto es llamado
+                observer.removeOnGlobalLayoutListener(this);
+                gameEngine.addGameObject(new Player(activityView));
+                gameEngine.ge_startGame();
+            }
+        });
 
         // encontrar fragment container para el menú de pausa
         fragmentContainerView = (FragmentContainerView) findViewById(R.id.fragmentContainerView);

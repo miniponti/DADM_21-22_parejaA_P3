@@ -42,7 +42,7 @@ public class ActivityJuego extends AppCompatActivity {
             public void onGlobalLayout(){
                 // Para evitar que sea llamado múltiples veces,
                 // se elimina el listener en cuanto es llamado
-                observer.removeOnGlobalLayoutListener(this);
+                //observer.removeOnGlobalLayoutListener(this);
                 gameEngine.addGameObject(new Player(activityView));
                 gameEngine.ge_startGame();
             }

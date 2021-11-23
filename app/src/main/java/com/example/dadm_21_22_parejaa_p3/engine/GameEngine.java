@@ -36,7 +36,7 @@ public class GameEngine {
     }
 
     // SETTER DE INPUT CONTROLLER
-    public void setGe_inputController(InputController inputController) {
+    public void setInputController(InputController inputController) {
         ge_inputController = inputController;
     }
 
@@ -83,7 +83,7 @@ public class GameEngine {
         }
     }
 
-    // REANUDA EL JUEGO
+    // PONE EL JUEGO EN MARCHA DE NUEVO
     public void ge_resumeGame() {
         if (ge_UpdateThread != null) {
             ge_UpdateThread.ut_resume();
@@ -93,15 +93,20 @@ public class GameEngine {
         }
     }
 
+    // AÑADE GAMEOBJECTS A LA LISTA
     public void addGameObject(GameObject gameObject) {
+        // SI EL JUEGO ESTÁ FUNCIONANDO, SE AÑADE EL GAMEOBJECT A LA LISTA DE GAMEOBJECTS QUE HAY QUE METER
         if (isRunning()){
             lista_objToAdd.add(gameObject);
         } else {
+            // SI NO, SIMPLEMENTE SE DEJA EN LA LISTA DE GAMEOBJECTS
             lista_gameObjects.add(gameObject);
         }
+        // CON ESTO SE EJECUTA EN EL HILO DE LA ACTIVITY
         mainActivity.runOnUiThread(gameObject.onAddedRunnable);
     }
 
+    // QUITA GAMEOBJECTS
     public void removeGameObject(GameObject gameObject) {
         // SE AÑADE A LA LISTA DE OBJETOS QUE ELIMINAR
         lista_objToRemove.add(gameObject);
@@ -110,9 +115,11 @@ public class GameEngine {
 
     public void onUpdate(long elapsedMillis) {
         int numGameObjects = lista_gameObjects.size();
+
         for (int i=0; i<numGameObjects; i++) {
             lista_gameObjects.get(i).onUpdate(elapsedMillis, this);
         }
+
         synchronized (lista_gameObjects) {
             while (!lista_objToRemove.isEmpty()) {
                 lista_gameObjects.remove(lista_objToRemove.remove(0));
@@ -127,10 +134,12 @@ public class GameEngine {
         mainActivity.runOnUiThread(drawRunnable);
     }
 
+    // COMPRUEBA SI EL HILO ESTÁ EJECUTANDO
     public boolean isRunning() {
         return ge_UpdateThread != null && ge_UpdateThread.isGameRunning();
     }
 
+    // COMPRUEBA SI EL HILO ESTÁ PAUSADO
     public boolean isPaused() {
         return ge_UpdateThread != null && ge_UpdateThread.isGamePaused();
     }

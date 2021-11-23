@@ -9,15 +9,17 @@ import com.example.dadm_21_22_parejaa_p3.input.InputController;
 
 public class Player extends GameObject{
 
-    private int maxX;
-    private int maxY;
-    private double positionX;
-    private double positionY;
-    private double speedFactor;
-    private double pixelFactor;
+    // VARIABLES ---------------------------------------------
+    private int maxX; // valor máximo para X
+    private int maxY; // valor máximo para Y
+    private double positionX; // posición en X
+    private double positionY; // posición en Y
+    private double speedFactor; // velocidad transformada a píxeles por milisegundo
+    private double pixelFactor; // tamaño elegido de pixel
     //private final TextView playerScore;
+    // -------------------------------------------------------
 
-    // constructor
+    // CONSTRUCTOR
     public Player(final View view){
         pixelFactor = view.getHeight() / 400d;
         maxX = view.getWidth() - view.getPaddingRight() - view.getPaddingLeft();

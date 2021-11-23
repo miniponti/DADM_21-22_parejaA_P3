@@ -14,12 +14,14 @@ public class UpdateThread extends Thread {
         theGameEngine = gameEngine;
     }
 
+    // EMPIEZA EL UPDATE THREAD
     public void ut_start() {
         isGameRunning = true;
         isGamePaused = false;
         super.start();
     }
 
+    // DETIENE EL UPDATE THREAD
     public void ut_stop() {
         isGameRunning = false;
         ut_resume();
@@ -52,12 +54,12 @@ public class UpdateThread extends Thread {
         }
     }
 
-    // DEVUELVE EL ESTADO DE JUEGO COMO PAUSADO
+    // PONE EL ESTADO DE JUEGO COMO PAUSADO
     public void ut_pause() {
         isGamePaused = true;
     }
 
-    // DEVUELVE EL ESTADO DE JUEGO COMO REANUDADO
+    // PONE EL ESTADO DE JUEGO COMO REANUDADO
     public void ut_resume() {
         if (isGamePaused == true) {
             isGamePaused = false;
@@ -67,10 +69,12 @@ public class UpdateThread extends Thread {
         }
     }
 
+    // DEVUELVE SI ESTÁ EJECUTANDO O NO
     public boolean isGameRunning() {
         return isGameRunning;
     }
 
+    // DEVUELVE SI ESTÁ PAUSADO O NO
     public boolean isGamePaused() {
         return isGamePaused;
     }

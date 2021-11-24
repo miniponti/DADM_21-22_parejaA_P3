@@ -16,6 +16,7 @@ import com.example.dadm_21_22_parejaa_p3.R;
 import com.example.dadm_21_22_parejaa_p3.engine.GameEngine;
 import com.example.dadm_21_22_parejaa_p3.input.InputController;
 import com.example.dadm_21_22_parejaa_p3.movimiento.Player;
+import com.example.dadm_21_22_parejaa_p3.movimiento.PlayerShip;
 
 public class ActivityJuego extends AppCompatActivity {
 
@@ -35,21 +36,24 @@ public class ActivityJuego extends AppCompatActivity {
         setContentView(R.layout.activity_juego);
 
         // encontrar view para poder coger las medidas para el jugador
-        activityView = (View) findViewById(android.R.id.content).getRootView();
-        final ViewTreeObserver observer = activityView.getViewTreeObserver();
-        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+        activityView = findViewById(android.R.id.content).getRootView();
+        activityView.getViewTreeObserver().addOnGlobalLayoutListener
+                (new ViewTreeObserver.OnGlobalLayoutListener(){
             @Override
             public void onGlobalLayout(){
-                // Para evitar que sea llamado múltiples veces,
-                // se elimina el listener en cuanto es llamado
-                //observer.removeOnGlobalLayoutListener(this);
-                gameEngine.addGameObject(new Player(activityView));
+                //Para evitar que sea llamado múltiples veces,
+                //se elimina el listener en cuanto es llamado
+                activityView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+
+                gameEngine = new GameEngine(ActivityJuego.this);
+                gameEngine.setInputController(new InputController());
+                gameEngine.addGameObject(new PlayerShip(activityView));
                 gameEngine.ge_startGame();
             }
         });
 
         // encontrar fragment container para el menú de pausa
-        fragmentContainerView = (FragmentContainerView) findViewById(R.id.fragmentContainerView);
+        fragmentContainerView = findViewById(R.id.fragmentContainerView);
         FragmentManager FM = getSupportFragmentManager();
         FM.beginTransaction().replace(R.id.fragmentContainerView, new MenuPausaFragment(), "FRAGMENT_PAUSA");
         fragmentContainerView.setVisibility(View.GONE);
@@ -58,7 +62,7 @@ public class ActivityJuego extends AppCompatActivity {
         mp_btn = MediaPlayer.create(getApplicationContext(), R.raw.sfx_botones);
 
         // boton pausa
-        botonPausa = (ImageButton) findViewById(R.id.btn_pausa);
+        botonPausa = findViewById(R.id.btn_pausa);
         botonPausa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // suena el efecto de sonido

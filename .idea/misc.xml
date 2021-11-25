@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/e.pontijas.2018/AndroidStudioProjects/DADM_2122_parejaA_P3/app/src/main/res/layout/activity_juego.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/e.pontijas.2018/AndroidStudioProjects/DADM_2122_parejaA_P3/app/src/main/res/font/bowlby_one.xml" value="0.2518518518518518" />
+        <entry key="..\:/Users/e.pontijas.2018/AndroidStudioProjects/DADM_2122_parejaA_P3/app/src/main/res/layout/activity_juego.xml" value="0.1" />
         <entry key="..\:/Users/e.pontijas.2018/AndroidStudioProjects/DADM_2122_parejaA_P3/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/e.pontijas.2018/AndroidStudioProjects/DADM_2122_parejaA_P3/app/src/main/res/layout/activity_menu_pausa.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/e.pontijas.2018/AndroidStudioProjects/DADM_2122_parejaA_P3/app/src/main/res/layout/activity_menu_resultados.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/e.pontijas.2018/AndroidStudioProjects/DADM_2122_parejaA_P3/app/src/main/res/layout/fragment_menu_pausa.xml" value="0.3605128205128205" />
         <entry key="..\:/Users/e.pontijas.2018/AndroidStudioProjects/DADM_2122_parejaA_P3/app/src/main/res/layout/menu_principal.xml" value="0.1" />
+        <entry key="..\:/Users/e.pontijas.2018/AndroidStudioProjects/DADM_2122_parejaA_P3/app/src/main/res/layout/view_joystick.xml" value="0.1" />
+        <entry key="..\:/Users/e.pontijas.2018/AndroidStudioProjects/DADM_2122_parejaA_P3/app/src/main/res/layout/view_keypad.xml" value="0.21666666666666667" />
       </map>
     </option>
   </component>

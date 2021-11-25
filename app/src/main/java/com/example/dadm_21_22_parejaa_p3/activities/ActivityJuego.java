@@ -15,6 +15,7 @@ import com.example.dadm_21_22_parejaa_p3.MenuPausaFragment;
 import com.example.dadm_21_22_parejaa_p3.R;
 import com.example.dadm_21_22_parejaa_p3.engine.GameEngine;
 import com.example.dadm_21_22_parejaa_p3.input.InputController;
+import com.example.dadm_21_22_parejaa_p3.input.Joystick;
 import com.example.dadm_21_22_parejaa_p3.movimiento.Player;
 import com.example.dadm_21_22_parejaa_p3.movimiento.PlayerShip;
 
@@ -46,7 +47,7 @@ public class ActivityJuego extends AppCompatActivity {
                 activityView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                 gameEngine = new GameEngine(ActivityJuego.this);
-                gameEngine.setInputController(new InputController());
+                gameEngine.setInputController(new Joystick(activityView));
                 gameEngine.addGameObject(new PlayerShip(activityView));
                 gameEngine.ge_startGame();
             }

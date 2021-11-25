@@ -53,7 +53,7 @@ public class Bullet extends Player {
             gameEngine.removeGameObject(this);
             // And return it to the pool
             parent.releaseBullet(this);
-        }YA
+        }
     }
 
     @Override

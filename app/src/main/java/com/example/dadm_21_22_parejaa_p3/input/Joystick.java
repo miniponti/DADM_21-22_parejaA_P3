@@ -42,17 +42,17 @@ public class Joystick extends InputController{
             else if (action == MotionEvent.ACTION_MOVE) {
                 horizontalFactor = (event.getX(0) - startingPositionX) / maxDistance;
                 if (horizontalFactor > 1) {
-                    horizontalFactor = 3;
+                    horizontalFactor = 1;
                 }
                 else if (horizontalFactor < -1) {
-                    horizontalFactor = -3;
+                    horizontalFactor = -1;
                 }
                 verticalFactor = (event.getY(0) - startingPositionY) / maxDistance;
                 if (verticalFactor > 1) {
-                    verticalFactor = 3;
+                    verticalFactor = 1;
                 }
                 else if (verticalFactor < -1) {
-                    verticalFactor = -3;
+                    verticalFactor = -1;
                 }
             }
             return true;

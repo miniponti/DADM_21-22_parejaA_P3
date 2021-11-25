@@ -1,38 +1,36 @@
 package com.example.dadm_21_22_parejaa_p3.movimiento;
 
-import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.dadm_21_22_parejaa_p3.R;
 import com.example.dadm_21_22_parejaa_p3.engine.GameEngine;
 import com.example.dadm_21_22_parejaa_p3.engine.GameObject;
 import com.example.dadm_21_22_parejaa_p3.input.InputController;
 
-public class Player extends GameObject{
+public abstract class Player extends GameObject{
 
     // VARIABLES ---------------------------------------------
     protected int maxX; // valor máximo para X
     protected int maxY; // valor máximo para Y
+    protected int numVidas; // número de vidas del jugador
     protected double positionX; // posición en X
     protected double positionY; // posición en Y
-    private double speedFactor; // velocidad transformada a píxeles por milisegundo
+    protected double speedFactor; // velocidad transformada a píxeles por milisegundo
     protected double pixelFactor; // tamaño elegido de pixel
     protected final TextView puntuacion;
+    protected final TextView vidasTexto;
     // -------------------------------------------------------
 
     // CONSTRUCTOR
     public Player(final View view){
         pixelFactor = 1;
+        numVidas = 3;
         maxX = view.getWidth() - view.getPaddingRight() - view.getPaddingLeft();
-        System.out.println("maxx" + maxX);
         maxY = view.getHeight() - view.getPaddingTop() - view.getPaddingBottom();
-        System.out.println("max y" + maxY);
 
         speedFactor = pixelFactor * 100d / 1000d;
         puntuacion = view.findViewById(R.id.txt_score);
+        vidasTexto = view.findViewById(R.id.txt_life);
     }
 
     // INICIALIZA LA POSICION DEL JUGADOR A LA MITAD DE LA PANTALLA
@@ -68,5 +66,7 @@ public class Player extends GameObject{
     }
 
     @Override
-    public void onDraw() { }
+    public void onDraw() {
+        vidasTexto.setText("VIDAS: " + numVidas);
+    }
 }
